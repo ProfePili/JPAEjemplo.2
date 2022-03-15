@@ -67,7 +67,7 @@ public class UsuarioServicio {
             if (Integer.toString(edad) == null | edad < 18 | Integer.toString(edad).trim().isEmpty()) {
                 throw new Exception("DEBE SER MAYOR DE EDAD");
             }
-            
+
             // CREO UNA INSTANCIA DE USUARIO
             Usuario usuario = new Usuario();
 
@@ -76,7 +76,7 @@ public class UsuarioServicio {
             usuario.setNombre(nombre);
             usuario.setApellido(apellido);
             usuario.setEdad(edad);
-            
+
             usuarioDAO.actualizarUsuario(usuario);
         } catch (ExcepcionPropia e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class UsuarioServicio {
             if (email == null | email.trim().isEmpty() | usuarioDAO.buscarUsuarioPorEmail(email) == null) {
                 throw new Exception("CORREO NO VÁLIDO");
             }
-            
+
             Usuario usuario = buscarUsuarioPorEmail(email);
             usuarioDAO.borrarUsuario(usuario);
         } catch (Exception e) {
@@ -100,30 +100,45 @@ public class UsuarioServicio {
     }
 
     public Usuario buscarUsuarioPorEmail(String email) throws Exception {
-        // VALIDACIONES
-        if (email == null | email.trim().isEmpty()) {
-            throw new Exception("EMAIL NO VÁLIDO");
+        try {
+            // VALIDACIONES
+            if (email == null | email.trim().isEmpty()) {
+                throw new Exception("EMAIL NO VÁLIDO");
+            }
+
+            return usuarioDAO.buscarUsuarioPorEmail(email);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("ERROR DE SISTEMA");
         }
-        
-        return usuarioDAO.buscarUsuarioPorEmail(email);
     }
 
     public List<Usuario> buscarUsuarioPorRangoDeEdad(int edad1, int edad2) throws Exception {
-        // VALIDACIONES
-        if (Integer.toString(edad1) == null | Integer.toString(edad1).trim().isEmpty()) {
-            throw new Exception("EDAD NO VÁLIDA");
-        }
+        try {
+            // VALIDACIONES
+            if (Integer.toString(edad1) == null | Integer.toString(edad1).trim().isEmpty()) {
+                throw new Exception("EDAD NO VÁLIDA");
+            }
 
-        if (Integer.toString(edad2) == null || Integer.toString(edad2).trim().isEmpty()) {
-            throw new Exception("EDAD NO VÁLIDA");
-        }
+            if (Integer.toString(edad2) == null || Integer.toString(edad2).trim().isEmpty()) {
+                throw new Exception("EDAD NO VÁLIDA");
+            }
 
-        return usuarioDAO.buscarUsuarioPorRangoEdad(edad1, edad2);
+            return usuarioDAO.buscarUsuarioPorRangoEdad(edad1, edad2);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("ERROR DE SISTEMA");
+        }
     }
 
-    public void imprimirTodosLosUsuarios() {
-        List<Usuario> usuarios = usuarioDAO.imprimirTodosLosUsuarios();
-        usuarios.forEach((u) -> System.out.println(u));
+    public void imprimirTodosLosUsuarios() throws Exception {
+        try {
+            List<Usuario> usuarios = usuarioDAO.imprimirTodosLosUsuarios();
+            usuarios.forEach((u) -> System.out.println(u));
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("ERROR DE SISTEMA");
+        }
     } //funciona
 
 }

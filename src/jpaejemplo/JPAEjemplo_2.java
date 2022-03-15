@@ -5,6 +5,7 @@
  */
 package jpaejemplo;
 
+import jpaejemplo.excepcion.ExcepcionPropia;
 import jpaejemplo.menu.Menu;
 
 /**
@@ -17,7 +18,13 @@ public class JPAEjemplo_2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
+        
+        try {
         Menu menu = new Menu();
         menu.menuPrincipal();
+        
+        } catch(ExcepcionPropia e){
+            throw new ExcepcionPropia("qqueso");
+        }
     }
 }
