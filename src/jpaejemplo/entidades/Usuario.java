@@ -10,7 +10,7 @@ public class Usuario {
     private String email;
     private String nombre;
     private String apellido;
-    private Integer edad;
+    private Integer edad;            
 
     public Usuario() {
     }

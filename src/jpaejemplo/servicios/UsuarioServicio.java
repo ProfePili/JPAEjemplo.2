@@ -43,11 +43,10 @@ public class UsuarioServicio {
             usuario.setEdad(edad);
 
             usuarioDAO.guardarUsuario(usuario);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception("ERROR DE SISTEMA");
+        } catch (ExcepcionPropia e) {
+            System.out.println(e.getMessage());
         }
-    } // funciona
+    }
 
     public void actualizarUsuario(String email, String nombre, String apellido, Integer edad) throws Exception {
         try {
@@ -80,7 +79,7 @@ public class UsuarioServicio {
             usuarioDAO.actualizarUsuario(usuario);
         } catch (ExcepcionPropia e) {
             e.printStackTrace();
-            throw new Exception("ERROR DE SISTEMA");
+            throw new ExcepcionPropia("ERROR DE SISTEMA");
         }
     }
 
@@ -93,9 +92,9 @@ public class UsuarioServicio {
 
             Usuario usuario = buscarUsuarioPorEmail(email);
             usuarioDAO.borrarUsuario(usuario);
-        } catch (Exception e) {
+        } catch (ExcepcionPropia e) {
             e.printStackTrace();
-            throw new Exception("ERROR DE SISTEMA");
+            throw new ExcepcionPropia("ERROR DE SISTEMA");
         }
     }
 
@@ -107,9 +106,9 @@ public class UsuarioServicio {
             }
 
             return usuarioDAO.buscarUsuarioPorEmail(email);
-        } catch (Exception e) {
+        } catch (ExcepcionPropia e) {
             e.printStackTrace();
-            throw new Exception("ERROR DE SISTEMA");
+            throw new ExcepcionPropia("ERROR DE SISTEMA");
         }
     }
 
@@ -125,9 +124,9 @@ public class UsuarioServicio {
             }
 
             return usuarioDAO.buscarUsuarioPorRangoEdad(edad1, edad2);
-        } catch (Exception e) {
+        } catch (ExcepcionPropia e) {
             e.printStackTrace();
-            throw new Exception("ERROR DE SISTEMA");
+            throw new ExcepcionPropia("ERROR DE SISTEMA");
         }
     }
 
@@ -139,6 +138,6 @@ public class UsuarioServicio {
             e.printStackTrace();
             throw new Exception("ERROR DE SISTEMA");
         }
-    } //funciona
+    } 
 
 }
