@@ -3,6 +3,7 @@ package jpaejemplo.entidades;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+//misma entidad
 @Entity
 public class Usuario {
 

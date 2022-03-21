@@ -6,6 +6,8 @@ import jpaejemplo.excepcion.ExcepcionPropia;
 import jpaejemplo.servicios.MetodosLecturaServicio;
 import jpaejemplo.servicios.UsuarioServicio;
 
+// A diferencia del ejemplo1, en este tenemos una classe Menu, 
+// que contiene el menú y hace llamado a métodos de lectura de datos del Servicio
 public class Menu {
 
     private MetodosLecturaServicio metodosLecturaServicio;

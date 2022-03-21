@@ -3,6 +3,7 @@ package jpaejemplo.persistencia;
 import java.util.List;
 import jpaejemplo.entidades.Usuario;
 
+// encontraremos más métodos, pero misma persistencia
 public class UsuarioDAO extends DAO<Usuario> {
 
     public void guardarUsuario(Usuario usuario) {

@@ -5,6 +5,7 @@ import jpaejemplo.entidades.Usuario;
 import jpaejemplo.excepcion.ExcepcionPropia;
 import jpaejemplo.persistencia.UsuarioDAO;
 
+// mismo servicio
 public class UsuarioServicio {
 
     private UsuarioDAO usuarioDAO;

@@ -5,6 +5,8 @@ import java.util.Scanner;
 import jpaejemplo.entidades.Usuario;
 import jpaejemplo.excepcion.ExcepcionPropia;
 
+// En esta clase encontraremos todos loss métodos que hacen uso
+// del Scanner: métodos que leen datos ingresados x teclado
 public class MetodosLecturaServicio {
 
     private UsuarioServicio usuarioServicio;
